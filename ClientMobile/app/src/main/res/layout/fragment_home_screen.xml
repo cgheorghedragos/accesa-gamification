@@ -1,0 +1,45 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/design_fade_effect_green"
+    tools:context=".presentation.app.HomeScreenFragment">
+
+    <ImageView
+        android:id="@+id/birdView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/linear"
+        android:layout_width="100dp"
+
+        android:layout_height="100dp"
+        app:indicatorDirectionLinear="leftToRight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birdView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/GiveLoveButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/design_oval_button_fade_effect"
+        android:fontFamily="@font/akaya_telivigala"
+        android:rotation="0"
+        android:text="@string/login_button_text"
+        android:textColor="@color/green2"
+        android:textSize="36sp"
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

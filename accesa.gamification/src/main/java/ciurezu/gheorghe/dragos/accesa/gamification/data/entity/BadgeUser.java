@@ -4,21 +4,19 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter @Setter
 @Entity
 @Table(name = "badge_user")
 public class BadgeUser {
     @Id
-    @Getter @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Getter @Setter
     @Column(name = "current_progress")
-    private Integer currentProgress;
+    private Integer currentProgress = 0;
 
     @ManyToOne
-    @Getter @Setter
     @JoinColumn(name = "users_id",nullable = false)
     private GamificationUser user;
 

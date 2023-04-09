@@ -4,42 +4,48 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Set;
 
+@Getter @Setter
 @Entity
 @Table(name = "users")
 public class GamificationUser {
     @Id
-    @Getter @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Getter @Setter
     @Column(name = "username")
     private String username;
 
-    @Getter @Setter
     @Column(name = "email")
     private String email;
 
-    @Getter @Setter
     @Column(name = "password")
     private String password;
 
-    @Getter @Setter
+    @Column(name = "nr_solved_quests")
+    private Integer nrSolvedQuests;
+
     @Column(name = "tokens")
     private Integer tokens;
 
-    @Getter @Setter
     @OneToMany(mappedBy = "user")
     private Set<Participant> participants;
 
-    @Getter @Setter
     @OneToMany(mappedBy = "user")
     private Set<BadgeUser> badges;
 
-    @Getter @Setter
     @OneToMany(mappedBy = "user")
     private Set<Quest> quests;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bird_id", referencedColumnName = "id")
+    private Bird bird;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Collection<Role> roles = new ArrayList<>();
+
 }

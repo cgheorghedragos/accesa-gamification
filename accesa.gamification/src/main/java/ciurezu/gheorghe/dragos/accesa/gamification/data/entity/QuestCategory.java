@@ -9,14 +9,16 @@ import java.util.Set;
 
 @Entity
 @Table(name = "quest_category")
+@Setter @Getter
 public class QuestCategory {
     @Id
-    @Getter @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Setter @Getter
+    @Column(name = "category_name")
+    private String categoryName;
+
     @OneToMany(mappedBy = "questCategory")
     private Set<Quest> quest;
 }
